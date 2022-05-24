@@ -1,0 +1,6 @@
+---
+# tasks file for lemp
+- name: Copying your php file in the /var/www/html
+  copy:
+    src: /root/Lampstack-Ansible-Playbook/templates/index.php
+    dest: /var/www/html/index.php

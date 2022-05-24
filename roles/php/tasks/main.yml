@@ -1,0 +1,9 @@
+- name: Installing PHP
+  yum:
+    name: 
+    - php 
+    - php-fpm
+    - php-mysql 
+    state: latest
+  notify:
+  - phpfpm start

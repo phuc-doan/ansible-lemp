@@ -1,0 +1,9 @@
+- name: Remove Test database if it exist.
+  mysql_db: name=test state=absent
+
+- name: Remove All Anonymous User Accounts
+  mysql_user: name=host_all=yes state=absent
+
+- name: Output ansible_hostname
+  debug: msg=Hostname is "{{ansible_hostname}}"
+

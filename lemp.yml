@@ -1,0 +1,9 @@
+---
+- name: install lemp
+  hosts: all
+  remote_user: root
+  roles:
+  - apache
+  - mariadb
+  - php
+  - lemp 

@@ -1,0 +1,7 @@
+[DB]
+Node1           ansible_host=192.168.78.129             ansible_ssh_user=root
+Node2           ansible_host=192.168.78.130             ansible_ssh_user=root
+[test]
+Node2           ansible_host=192.168.78.130             ansible_ssh_user=root
+
+

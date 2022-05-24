@@ -1,0 +1,68 @@
+- name: Install MYSQL DB Community edition
+  yum:
+    name: 
+    - mariadb-server 
+    - mariadb
+    - git
+    - ntp
+    - python-pip
+    - epel-release
+    - python36
+    - python36-devel
+    - python36-setuptools
+    - python3-PyMySQL
+    state: latest
+
+
+
+- name: Install the MySQL-python through pip
+  yum:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - python2-pip
+    - python3-pip
+
+
+- name: Install MySQL-python
+  yum:
+    name:
+      - python3-pip
+      - MySQL-python
+
+
+  notify:
+  - start mariadb
+
+
+- name: remove user and DB
+  import_tasks: remove.yml
+
+
+
+- name: Ensure root user can only login from localhost
+  mysql_user:
+    check_implicit_admin: yes
+    name: root
+    host: "{{item}}"
+    state: present
+  with_items:
+    - localhost
+    - 127.0.0.1
+    - ::1
+
+
+- name: Update Root user's Password
+  user:
+     name: root
+     update_password: always
+     password: "{{root_db_password}}"
+
+
+
+
+
+
+
+
+

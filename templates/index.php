@@ -1,4 +1,6 @@
+<h1> PhucDV </h1>
 <html>
+
  <head>
   <title>Ansible Application</title>
  </head>
@@ -6,7 +8,7 @@
 
 <?php
 
-echo " Hello From Thetips4you"
+echo " LAMP stack PHP-FPM "
 
 ?>
 

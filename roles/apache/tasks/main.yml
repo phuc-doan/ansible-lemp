@@ -1,0 +1,6 @@
+- name: Installing Apache
+  yum: 
+    name: httpd
+    state: installed
+  notify:
+  - start_httpd
